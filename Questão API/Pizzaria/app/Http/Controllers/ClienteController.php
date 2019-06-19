@@ -14,6 +14,7 @@ class ClienteController extends Controller
         $rules = [
             'telefone' => 'required',
             'nome' => 'required',
+            'endereco' => 'required',
         ];
         $validator = Validator::make(Input::all(), $rules);
         if ($validator->fails()) {
@@ -26,6 +27,7 @@ class ClienteController extends Controller
         $cliente = new cliente();
         $cliente->telefone = $request->telefone;
         $cliente->nome = $request->nome;
+        $cliente->endereco = $request->endereco;
         $cliente->save();
         $return['data']= $cliente;
 
